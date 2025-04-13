@@ -11,4 +11,4 @@ sap.ui.define([
             MessageToast.show(sMsg);
         }
     });
-});
+});  
