@@ -52,7 +52,7 @@ xmlns:mvc="sap.ui.core.mvc">
                 type="Navigation"
                 press=".onPress">
                 <cells>
-                    <ObjectNumber number="{invoice>Quantity}" emphasized="fasle"/>
+                    <ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
                     <ObjectIdentifier title="{invoice>ProductName}"/>
                     <Text text="{
                             path: 'invoice>Status',
@@ -68,7 +68,7 @@ xmlns:mvc="sap.ui.core.mvc">
                             }
                         }"
                         unit="{view>currency}"
-                        state="{= ${invoiceExtendedPrice} > 50 ? 'Error' : 'Success'}"/>
+                        state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}"/>
                 </cells>
             </ColumnListItem>
         </items>
