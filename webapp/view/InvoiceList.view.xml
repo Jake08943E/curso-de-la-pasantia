@@ -2,9 +2,21 @@
 controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
 xmlns="sap.m"
 xmlns:mvc="sap.ui.core.mvc">
+    <Panel accessibleRole="Region">
+    <headerToolbar>
+        <Toolbar>
+            <Title text="{i18n>invoiceListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField
+                width="50%"
+                search=".onFilterInvoices"
+                ariaLabelledBy="searchFieldLabel"
+                ariaDescribedBy="searchFieldDescription"
+                placeholder="{i18n>searchFieldPlaceHolder}"/>
+        </Toolbar>
+    </headerToolbar>
     <Table
         id="invoiceList"
-        headerText="{i18n>invoiceListTitle}"
         class="saUiResponsiveMargin"
         width="auto"
         items="{
@@ -14,13 +26,6 @@ xmlns:mvc="sap.ui.core.mvc">
                 group: true
                 }
             }">
-        <headerToolbar>
-            <Toolbar>
-            <Title text="{i18n>invoiceListTitle}"/>
-            <ToolbarSpacer/>
-            <SearchField width="50%" search=".onFilterInvoices"/>
-            </Toolbar>
-        </headerToolbar>
         <columns>
             <Column
                 hAlign="End"
@@ -68,9 +73,10 @@ xmlns:mvc="sap.ui.core.mvc">
                             }
                         }"
                         unit="{view>currency}"
-                        state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}"/>
+                        state="{= ${invoiceExtendedPrice} > 50 ? 'Error' : 'Success'}"/>
                 </cells>
             </ColumnListItem>
         </items>
     </Table>
+    </Panel>
 </mvc:View>
